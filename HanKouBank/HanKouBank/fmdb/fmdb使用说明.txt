@@ -1,0 +1,5 @@
+
+
+导入libsqlite3.dylib
+包含头文件
+#import "FMDatabase.h"
