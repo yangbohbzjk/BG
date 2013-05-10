@@ -7,7 +7,7 @@
 //
 
 #import "RegisterViewController.h"
-#import "DataBase.h"
+
 @interface RegisterViewController ()
 
 @end
@@ -19,6 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         [self.navigationItem setHidesBackButton:YES];
         self.title = @"注册";
        
@@ -45,11 +46,8 @@
     UIBarButtonItem *backBar = [[UIBarButtonItem alloc]initWithCustomView:backButton];
     [self.navigationItem setLeftBarButtonItem:backBar];
     
-    
-    
-    
     //循环五个个button tag:(0-3)+150
-    NSArray *placeholderArr = [NSArray arrayWithObjects:@"  用户名",@"  密码",@"  电子邮箱",@"  真实姓名",@"手机号码", nil];
+    NSArray *placeholderArr = [NSArray arrayWithObjects:@"  用户名",@"  密码",@"  电子邮箱",@"  真实姓名",@"  手机号码", nil];
     NSArray *bgimg = [NSArray arrayWithObjects:@"login_top.png",@"headerBackground.png",@"headerBackground.png",@"headerBackground.png",@"login_buttom.png", nil];
     for (int i = 0; i<5; i++) {
         UITextField *User_textField = [[UITextField alloc]initWithFrame:CGRectMake(20, 25+40*i, 280, 40)];
@@ -62,8 +60,8 @@
         [User_textField setTag:i+150];
         [self.view addSubview:User_textField];
     }
-    
-//resgister button
+   
+    //resgister button
     UIButton *resgisterButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [resgisterButton setFrame:CGRectMake(100, 260, 120, 40)];
     [resgisterButton setTitle:@"注册" forState:UIControlStateNormal];
@@ -82,27 +80,33 @@
 
 - (void)Resgister:(UIButton *)sender
 {
-    //创建数据库模型对象
-    self.db = [[DataBase alloc]init];
-    //创建数据库模型对象
-    self.db = [[DataBase alloc]init];
-    //判断有无数据库并复制一份到沙盒
-    [self.db CopyDatabase:DBName];
-   BOOL find = [self.db selectUserFromDB:((UITextField *)[self.view viewWithTag:150+0]).text];
-    if (find) {
-        //查询到用户名
-        UIAlertView *findAlert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"用户已存在！请更换用户名" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        [findAlert setTag:181];
-        [findAlert show];
-    }else{
-        [self.db insertWithUserInfo:((UITextField *)[self.view viewWithTag:150+0]).text AndPass:((UITextField *)[self.view viewWithTag:150+1]).text AndEmail:((UITextField *)[self.view viewWithTag:150+2]).text AndRealname:((UITextField *)[self.view viewWithTag:150+3]).text AndUid:[NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",((UITextField *)[self.view viewWithTag:150+4]).text] intValue]]];
-       
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"申请账户成功，欢迎%@回来",((UITextField *)[self.view viewWithTag:150+0]).text] delegate:self cancelButtonTitle:@"马上登陆" otherButtonTitles: nil];
-            [alert setTag:180];
-            [alert show];
-    }
-    //关闭数据库
-    [self.db CloseDB];
+    RegisterDB *db = [RegisterDB sharedDB];
+    [db readyDatabse];
+    if ([db openDatabase]) {
+        User *user = [[User alloc]init];
+        user.username = ((UITextField *)[self.view viewWithTag:150+0]).text;
+        user.password = ((UITextField *)[self.view viewWithTag:150+1]).text;
+        user.uid = [((UITextField *)[self.view viewWithTag:150+4]).text integerValue];
+        user.email =((UITextField *)[self.view viewWithTag:150+2]).text;
+        user.realname =((UITextField *)[self.view viewWithTag:150+3]).text;
+        if ([db selectUserFromDB:user]) {
+            //查询到用户名 有重名，提示后重新输入判断
+            UIAlertView *findAlert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"用户已存在！请更换用户名" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+            [findAlert setTag:181];
+            [findAlert show];
+
+        }else{
+            //查询用户名没有重名，插入数据后跳转到登陆页面
+           BOOL success =  [db insertWithUserInfo:user];
+            if (success) {
+                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"申请账户成功，欢迎%@回来",user.username] delegate:self cancelButtonTitle:@"马上登陆" otherButtonTitles: nil];
+                [alert setTag:180];
+                [alert show];
+            }else
+                [db closeDatabase];
+        }
+    }else
+        DLog(@"打开数据库又失败了。。。");
    
 }
 
@@ -120,14 +124,9 @@
 {
     if (alertView.tag == 180) {
         if (buttonIndex == 0) {
-             [self.db insertWithUserInfo:((UITextField *)[self.view viewWithTag:150+0]).text AndPass:((UITextField *)[self.view viewWithTag:150+1]).text AndEmail:((UITextField *)[self.view viewWithTag:150+2]).text AndRealname:((UITextField *)[self.view viewWithTag:150+3]).text AndUid:[NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@",((UITextField *)[self.view viewWithTag:150+4]).text] intValue]]];
         [self.navigationController popViewControllerAnimated:YES];
         }
 
-    }else if (alertView.tag == 181){
-        if (buttonIndex == 0) {
-            NSLog(@"用户名存在，重新输入");
-        }
     }
     
 }

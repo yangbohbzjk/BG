@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MainPageViewController.h"
 #import "RegisterViewController.h"
+#import "ForgotPassViewController.h"
 #import "LoginDB.h"
 
 @interface LoginViewController ()
@@ -102,8 +103,8 @@
 
 - (void)Forgot:(UIButton *)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"这里还没有实现～" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-    [alert show];
+    ForgotPassViewController *forgotPassView = [[ ForgotPassViewController alloc]init];
+    [self.navigationController pushViewController:forgotPassView animated:YES];
 }
 
 - (void)Resgister:(UIButton *)sender
@@ -112,34 +113,31 @@
     [self.navigationController pushViewController:registerView animated:YES];
 }
 
+#pragma mark ------ 登陆事件 ------
 - (void)Login:(UIButton *)sender
 {
     UITextField *name = (UITextField *)[self.view viewWithTag:100];
     UITextField *pass = (UITextField *)[self.view viewWithTag:101];
-    if (name.text == nil || pass.text == nil) {
-        //如果密码为空，提示
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"警告" message:@"请输入账号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-    }
-    else if ([name.text isEqualToString:@"hankou"]&&[pass.text isEqualToString:@"hankou"]){
-        //如果账号密码为测试账号，则进入主页面
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"欢迎回来" message:[NSString stringWithFormat:@"登陆成功!欢迎你%@",name.text] delegate:self cancelButtonTitle:@"进入主页" otherButtonTitles:nil];
-        [alert setTag:183];
-        [alert show];
-               
-    }else{
-        LoginDB *db = [[LoginDB alloc]init];
-        [db CopyDatabase:DBName];
-        BOOL success;
-        success = [db selectUserAndPassFromDB:((UITextField *)[self.view viewWithTag:100]).text AndPassText:((UITextField *)[self.view viewWithTag:101]).text];
-        if (success) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"欢迎回来" message:[NSString stringWithFormat:@"登陆成功!欢迎你%@",name.text] delegate:self cancelButtonTitle:@"进入主页" otherButtonTitles:nil];
-            [alert setTag:182];
+    User *user = [[User alloc]init];
+    user.username = name.text;
+    user.password = pass.text;
+    LoginDB *db = [LoginDB sharedDB];
+    [db readyDatabse];
+    if ([db openDatabase]) {
+        //查询数据库中的账号密码进行匹配
+        if ([db selectUserAndPassFromDB:user]) {
+            //如果为真，账号密码正确
+            DLog(@"登陆成功");
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"欢迎回来" message:[NSString stringWithFormat:@"登陆成功!欢迎你%@",user.username] delegate:self cancelButtonTitle:@"进入主页" otherButtonTitles:nil];
+            [alert setTag:183];
             [alert show];
         }else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"异常" message:@"账号登陆异常，请重新登陆" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
-        [alert show];
+            DLog(@"登陆失败");
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"账号或密码错误，请重新登陆" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
+            [alert show];
         }
+    }else{
+        DLog(@"数据库又没打开。。。。");
     }
 }
 - (void)didReceiveMemoryWarning

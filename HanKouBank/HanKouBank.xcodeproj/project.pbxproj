@@ -16,9 +16,6 @@
 		4528F21A172A6E880032E9EB /* jia.png in Resources */ = {isa = PBXBuildFile; fileRef = 4528F219172A6E880032E9EB /* jia.png */; };
 		453184151728D33E005E7AF8 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 453184141728D33E005E7AF8 /* ic_launcher.png */; };
 		4531843E17291320005E7AF8 /* NSString+DateToChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = 4531843D17291320005E7AF8 /* NSString+DateToChanged.m */; };
-		458288DD173BA709006B2B74 /* LoginDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288DA173BA709006B2B74 /* LoginDB.m */; };
-		458288DE173BA709006B2B74 /* RegisterDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288DC173BA709006B2B74 /* RegisterDB.m */; };
-		458288E1173BA74E006B2B74 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288E0173BA74E006B2B74 /* DataBase.m */; };
 		458288E8173BA992006B2B74 /* ContentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288E3173BA992006B2B74 /* ContentLevel.m */; };
 		458288E9173BA992006B2B74 /* ListLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288E5173BA992006B2B74 /* ListLevel.m */; };
 		458288EA173BA992006B2B74 /* MainLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288E7173BA992006B2B74 /* MainLevel.m */; };
@@ -159,6 +156,12 @@
 		45EC1B4717265B760072B5B3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC1B4617265B760072B5B3 /* MapKit.framework */; };
 		45EC1B4917265B7C0072B5B3 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC1B4817265B7B0072B5B3 /* ImageIO.framework */; };
 		45EC1B4D17265C530072B5B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC1B4C17265C530072B5B3 /* QuartzCore.framework */; };
+		45EE0E78173C8E3B00FB13EE /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E73173C8E3B00FB13EE /* DataBase.m */; };
+		45EE0E79173C8E3B00FB13EE /* LoginDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E75173C8E3B00FB13EE /* LoginDB.m */; };
+		45EE0E7A173C8E3B00FB13EE /* RegisterDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E77173C8E3B00FB13EE /* RegisterDB.m */; };
+		45EE0E7D173C92DD00FB13EE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E7C173C92DD00FB13EE /* User.m */; };
+		45EE0E80173CD62200FB13EE /* ForgotPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E7F173CD62200FB13EE /* ForgotPassViewController.m */; };
+		45EE0E83173CDA3900FB13EE /* ForgotDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0E82173CDA3800FB13EE /* ForgotDB.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,12 +175,6 @@
 		453184141728D33E005E7AF8 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = ../ic_launcher.png; sourceTree = "<group>"; };
 		4531843C17291320005E7AF8 /* NSString+DateToChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+DateToChanged.h"; path = "Category/NSString+DateToChanged.h"; sourceTree = "<group>"; };
 		4531843D17291320005E7AF8 /* NSString+DateToChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+DateToChanged.m"; path = "Category/NSString+DateToChanged.m"; sourceTree = "<group>"; };
-		458288D9173BA709006B2B74 /* LoginDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginDB.h; path = DB/Model/LoginDB.h; sourceTree = "<group>"; };
-		458288DA173BA709006B2B74 /* LoginDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginDB.m; path = DB/Model/LoginDB.m; sourceTree = "<group>"; };
-		458288DB173BA709006B2B74 /* RegisterDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterDB.h; path = DB/Model/RegisterDB.h; sourceTree = "<group>"; };
-		458288DC173BA709006B2B74 /* RegisterDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterDB.m; path = DB/Model/RegisterDB.m; sourceTree = "<group>"; };
-		458288DF173BA74E006B2B74 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBase.h; path = DB/Model/DataBase.h; sourceTree = "<group>"; };
-		458288E0173BA74E006B2B74 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataBase.m; path = DB/Model/DataBase.m; sourceTree = "<group>"; };
 		458288E2173BA992006B2B74 /* ContentLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentLevel.h; path = Model/ContentLevel.h; sourceTree = "<group>"; };
 		458288E3173BA992006B2B74 /* ContentLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentLevel.m; path = Model/ContentLevel.m; sourceTree = "<group>"; };
 		458288E4173BA992006B2B74 /* ListLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListLevel.h; path = Model/ListLevel.h; sourceTree = "<group>"; };
@@ -382,6 +379,18 @@
 		45EC1B4817265B7B0072B5B3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		45EC1B4A17265C420072B5B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		45EC1B4C17265C530072B5B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		45EE0E72173C8E3B00FB13EE /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBase.h; path = DataAccess/DataBase.h; sourceTree = "<group>"; };
+		45EE0E73173C8E3B00FB13EE /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataBase.m; path = DataAccess/DataBase.m; sourceTree = "<group>"; };
+		45EE0E74173C8E3B00FB13EE /* LoginDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginDB.h; path = DataAccess/LoginDB.h; sourceTree = "<group>"; };
+		45EE0E75173C8E3B00FB13EE /* LoginDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginDB.m; path = DataAccess/LoginDB.m; sourceTree = "<group>"; };
+		45EE0E76173C8E3B00FB13EE /* RegisterDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterDB.h; path = DataAccess/RegisterDB.h; sourceTree = "<group>"; };
+		45EE0E77173C8E3B00FB13EE /* RegisterDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterDB.m; path = DataAccess/RegisterDB.m; sourceTree = "<group>"; };
+		45EE0E7B173C92DD00FB13EE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
+		45EE0E7C173C92DD00FB13EE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		45EE0E7E173CD62200FB13EE /* ForgotPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotPassViewController.h; path = App/ForgotPassViewController.h; sourceTree = "<group>"; };
+		45EE0E7F173CD62200FB13EE /* ForgotPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotPassViewController.m; path = App/ForgotPassViewController.m; sourceTree = "<group>"; };
+		45EE0E81173CDA3800FB13EE /* ForgotDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotDB.h; path = DataAccess/ForgotDB.h; sourceTree = "<group>"; };
+		45EE0E82173CDA3800FB13EE /* ForgotDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotDB.m; path = DataAccess/ForgotDB.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +426,8 @@
 				458288E5173BA992006B2B74 /* ListLevel.m */,
 				458288E6173BA992006B2B74 /* MainLevel.h */,
 				458288E7173BA992006B2B74 /* MainLevel.m */,
+				45EE0E7B173C92DD00FB13EE /* User.h */,
+				45EE0E7C173C92DD00FB13EE /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -727,16 +738,18 @@
 		4593553917263D1D0058B1A1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				458288EB173BA9A3006B2B74 /* ContentPageViewController.h */,
-				458288EC173BA9A3006B2B74 /* ContentPageViewController.m */,
-				458288ED173BA9A3006B2B74 /* ListPageViewController.h */,
-				458288EE173BA9A3006B2B74 /* ListPageViewController.m */,
-				458288EF173BA9A3006B2B74 /* LoginViewController.h */,
-				458288F0173BA9A3006B2B74 /* LoginViewController.m */,
-				458288F1173BA9A3006B2B74 /* MainPageViewController.h */,
-				458288F2173BA9A3006B2B74 /* MainPageViewController.m */,
 				458288F3173BA9A3006B2B74 /* RegisterViewController.h */,
 				458288F4173BA9A3006B2B74 /* RegisterViewController.m */,
+				458288EF173BA9A3006B2B74 /* LoginViewController.h */,
+				458288F0173BA9A3006B2B74 /* LoginViewController.m */,
+				45EE0E7E173CD62200FB13EE /* ForgotPassViewController.h */,
+				45EE0E7F173CD62200FB13EE /* ForgotPassViewController.m */,
+				458288F1173BA9A3006B2B74 /* MainPageViewController.h */,
+				458288F2173BA9A3006B2B74 /* MainPageViewController.m */,
+				458288ED173BA9A3006B2B74 /* ListPageViewController.h */,
+				458288EE173BA9A3006B2B74 /* ListPageViewController.m */,
+				458288EB173BA9A3006B2B74 /* ContentPageViewController.h */,
+				458288EC173BA9A3006B2B74 /* ContentPageViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -863,12 +876,14 @@
 		45E49FC0172B78E80044FDDA /* DataAccess */ = {
 			isa = PBXGroup;
 			children = (
-				458288DF173BA74E006B2B74 /* DataBase.h */,
-				458288E0173BA74E006B2B74 /* DataBase.m */,
-				458288D9173BA709006B2B74 /* LoginDB.h */,
-				458288DA173BA709006B2B74 /* LoginDB.m */,
-				458288DB173BA709006B2B74 /* RegisterDB.h */,
-				458288DC173BA709006B2B74 /* RegisterDB.m */,
+				45EE0E72173C8E3B00FB13EE /* DataBase.h */,
+				45EE0E73173C8E3B00FB13EE /* DataBase.m */,
+				45EE0E74173C8E3B00FB13EE /* LoginDB.h */,
+				45EE0E75173C8E3B00FB13EE /* LoginDB.m */,
+				45EE0E76173C8E3B00FB13EE /* RegisterDB.h */,
+				45EE0E77173C8E3B00FB13EE /* RegisterDB.m */,
+				45EE0E81173CDA3800FB13EE /* ForgotDB.h */,
+				45EE0E82173CDA3800FB13EE /* ForgotDB.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -1018,9 +1033,6 @@
 				4593552917263CFC0058B1A1 /* main.m in Sources */,
 				4593552D17263CFC0058B1A1 /* AppDelegate.m in Sources */,
 				4531843E17291320005E7AF8 /* NSString+DateToChanged.m in Sources */,
-				458288DD173BA709006B2B74 /* LoginDB.m in Sources */,
-				458288DE173BA709006B2B74 /* RegisterDB.m in Sources */,
-				458288E1173BA74E006B2B74 /* DataBase.m in Sources */,
 				458288E8173BA992006B2B74 /* ContentLevel.m in Sources */,
 				458288E9173BA992006B2B74 /* ListLevel.m in Sources */,
 				458288EA173BA992006B2B74 /* MainLevel.m in Sources */,
@@ -1073,6 +1085,12 @@
 				458289A9173BACB4006B2B74 /* FMDatabaseQueue.m in Sources */,
 				458289AB173BACB4006B2B74 /* FMResultSet.m in Sources */,
 				458289AF173BAD31006B2B74 /* MarqueeLabel.m in Sources */,
+				45EE0E78173C8E3B00FB13EE /* DataBase.m in Sources */,
+				45EE0E79173C8E3B00FB13EE /* LoginDB.m in Sources */,
+				45EE0E7A173C8E3B00FB13EE /* RegisterDB.m in Sources */,
+				45EE0E7D173C92DD00FB13EE /* User.m in Sources */,
+				45EE0E80173CD62200FB13EE /* ForgotPassViewController.m in Sources */,
+				45EE0E83173CDA3900FB13EE /* ForgotDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

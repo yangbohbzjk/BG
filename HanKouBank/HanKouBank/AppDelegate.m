@@ -23,15 +23,15 @@
     [loginState setObject:@"" forKey:@"login"];
     //初始化试图控制器
 //        if ([loginState objectForKey:@"login"]) {
-//            LoginViewController *LoginView = [[LoginViewController alloc]init];
-//            UINavigationController *Nav_Login = [[UINavigationController alloc]initWithRootViewController:LoginView];
-//            [self.window setRootViewController:Nav_Login];
+            LoginViewController *LoginView = [[LoginViewController alloc]init];
+            UINavigationController *Nav_Login = [[UINavigationController alloc]initWithRootViewController:LoginView];
+            [self.window setRootViewController:Nav_Login];
 
 //        }else{
 //            [loginState setObject:@"login" forKey:@"login"];
-            MainPageViewController *mainPage = [[MainPageViewController alloc]init];
-            UINavigationController *Nav = [[UINavigationController alloc]initWithRootViewController:mainPage];
-            [self.window setRootViewController:Nav];
+//            MainPageViewController *mainPage = [[MainPageViewController alloc]init];
+//            UINavigationController *Nav = [[UINavigationController alloc]initWithRootViewController:mainPage];
+//            [self.window setRootViewController:Nav];
 //
 //        }
 
