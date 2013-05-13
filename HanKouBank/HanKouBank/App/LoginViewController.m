@@ -122,7 +122,6 @@
     user.username = name.text;
     user.password = pass.text;
     LoginDB *db = [LoginDB sharedDB];
-    [db readyDatabse];
     if ([db openDatabase]) {
         //查询数据库中的账号密码进行匹配
         if ([db selectUserAndPassFromDB:user]) {
@@ -136,9 +135,12 @@
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"账号或密码错误，请重新登陆" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
             [alert show];
         }
-    }else{
+        [db closeDatabase];
+    }else
         DLog(@"数据库又没打开。。。。");
-    }
+    
+
+    
 }
 - (void)didReceiveMemoryWarning
 {

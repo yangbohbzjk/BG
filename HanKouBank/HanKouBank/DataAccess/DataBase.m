@@ -55,14 +55,14 @@ static DataBase *sharedDB = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     path = [documentsDirectory stringByAppendingPathComponent:DBName];
-	NSLog(@"%@",path);
+//	NSLog(@"%@",path);
 }
 
 #pragma mark － 操作
 
 //open database
 -(BOOL)openDatabase{
-	[self readyDatabse];
+//	[self readyDatabse];
     if (sqlite3_open([path UTF8String], &database) == SQLITE_OK) {
 		return TRUE;
 	}else {
@@ -120,6 +120,7 @@ static DataBase *sharedDB = nil;
 //close database
 -(void)closeDatabase{
 	sqlite3_close(database);
+    NSLog(@"关闭数据库成功");
 }
 
 

@@ -26,7 +26,6 @@
 @property (nonatomic, strong) NSMutableArray *channelIconArray;
 @property (nonatomic, strong) NSMutableArray *channelTypeArray;
 
-
 //二层数据源
 @property (nonatomic, strong) NSMutableArray *mArray;
 

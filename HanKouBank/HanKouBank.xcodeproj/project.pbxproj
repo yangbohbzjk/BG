@@ -14,6 +14,7 @@
 		4528F1F1172A0AB00032E9EB /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 4528F1EE172A0AB00032E9EB /* chat.png */; };
 		4528F1F2172A0AB00032E9EB /* mainpage_ad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4528F1EF172A0AB00032E9EB /* mainpage_ad.png */; };
 		4528F21A172A6E880032E9EB /* jia.png in Resources */ = {isa = PBXBuildFile; fileRef = 4528F219172A6E880032E9EB /* jia.png */; };
+		452FE4941740799E00F7D4CB /* ContentDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 452FE4931740799E00F7D4CB /* ContentDB.m */; };
 		453184151728D33E005E7AF8 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 453184141728D33E005E7AF8 /* ic_launcher.png */; };
 		4531843E17291320005E7AF8 /* NSString+DateToChanged.m in Sources */ = {isa = PBXBuildFile; fileRef = 4531843D17291320005E7AF8 /* NSString+DateToChanged.m */; };
 		458288E8173BA992006B2B74 /* ContentLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458288E3173BA992006B2B74 /* ContentLevel.m */; };
@@ -172,6 +173,8 @@
 		4528F1EE172A0AB00032E9EB /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat.png; path = resources/chat.png; sourceTree = "<group>"; };
 		4528F1EF172A0AB00032E9EB /* mainpage_ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mainpage_ad.png; path = resources/mainpage_ad.png; sourceTree = "<group>"; };
 		4528F219172A6E880032E9EB /* jia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jia.png; path = resources/jia.png; sourceTree = "<group>"; };
+		452FE4921740799E00F7D4CB /* ContentDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentDB.h; path = DataAccess/ContentDB.h; sourceTree = "<group>"; };
+		452FE4931740799E00F7D4CB /* ContentDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentDB.m; path = DataAccess/ContentDB.m; sourceTree = "<group>"; };
 		453184141728D33E005E7AF8 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_launcher.png; path = ../ic_launcher.png; sourceTree = "<group>"; };
 		4531843C17291320005E7AF8 /* NSString+DateToChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+DateToChanged.h"; path = "Category/NSString+DateToChanged.h"; sourceTree = "<group>"; };
 		4531843D17291320005E7AF8 /* NSString+DateToChanged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+DateToChanged.m"; path = "Category/NSString+DateToChanged.m"; sourceTree = "<group>"; };
@@ -884,6 +887,8 @@
 				45EE0E77173C8E3B00FB13EE /* RegisterDB.m */,
 				45EE0E81173CDA3800FB13EE /* ForgotDB.h */,
 				45EE0E82173CDA3800FB13EE /* ForgotDB.m */,
+				452FE4921740799E00F7D4CB /* ContentDB.h */,
+				452FE4931740799E00F7D4CB /* ContentDB.m */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -1091,6 +1096,7 @@
 				45EE0E7D173C92DD00FB13EE /* User.m in Sources */,
 				45EE0E80173CD62200FB13EE /* ForgotPassViewController.m in Sources */,
 				45EE0E83173CDA3900FB13EE /* ForgotDB.m in Sources */,
+				452FE4941740799E00F7D4CB /* ContentDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

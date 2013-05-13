@@ -44,7 +44,8 @@
 //    UINavigationController *N = [[UINavigationController alloc]initWithRootViewController:registerView];
 //    [self.window setRootViewController:N];
     
-   
+    
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

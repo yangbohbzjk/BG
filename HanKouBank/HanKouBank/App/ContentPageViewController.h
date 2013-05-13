@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ListPageViewController.h"
 #import "NSString+DateToChanged.h"
-
+#import "ContentDB.h"
 
 @interface ContentPageViewController : UIViewController<ASIHTTPRequestDelegate>
 {

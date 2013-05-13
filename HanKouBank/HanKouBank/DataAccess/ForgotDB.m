@@ -11,6 +11,7 @@
 @implementation ForgotDB
 
 static ForgotDB *sharedDB = nil;
+
 +(ForgotDB*)sharedDB
 {
     @synchronized(self)

@@ -81,7 +81,7 @@
 - (void)Resgister:(UIButton *)sender
 {
     RegisterDB *db = [RegisterDB sharedDB];
-    [db readyDatabse];
+    
     if ([db openDatabase]) {
         User *user = [[User alloc]init];
         user.username = ((UITextField *)[self.view viewWithTag:150+0]).text;
@@ -102,12 +102,15 @@
                 UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"申请账户成功，欢迎%@回来",user.username] delegate:self cancelButtonTitle:@"马上登陆" otherButtonTitles: nil];
                 [alert setTag:180];
                 [alert show];
-            }else
-                [db closeDatabase];
+            }
+            
         }
+        [db closeDatabase];
     }else
         DLog(@"打开数据库又失败了。。。");
-   
+    
+    
+
 }
 
 //关闭键盘方法

@@ -215,10 +215,18 @@
     }
 }
 
--(void)requestFailed:(ASIHTTPRequest *)request
+- (void)requestFailed:(ASIHTTPRequest*)request
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"网络连接失败！请检查网络" delegate:self cancelButtonTitle:@"重试" otherButtonTitles:nil];
-    [alert show];
+    @try{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"网络连接失败！请检查网络" delegate:self cancelButtonTitle:@"重试" otherButtonTitles: nil];
+        [alert show];
+        
+    }
+    @catch(...)
+    {
+        //NSLog(...)
+    }
+    
 }
 
 -(void)alertViewCancel:(UIAlertView *)alertView

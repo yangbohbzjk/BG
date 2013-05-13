@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     //=========================Bar===========================
     //Nav Bar bgimage
@@ -63,10 +64,6 @@
     request.delegate = self;
     [request setTag:220];
     [request startAsynchronous];
-
-//    _listPageView = [[ListPageViewController alloc]init];
-//    _listPageView.list_delegate = self;
-//    [self HiddenBackBarWithNewYourBackBar];
     
     UIScrollView *MyScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 440)];
     [MyScroll setContentSize:CGSizeMake(320, 800)];
@@ -149,6 +146,14 @@
     [C.scrollView setShowsVerticalScrollIndicator:NO];
 //    [C.scrollView setScrollEnabled:NO];
     [C loadHTMLString:((ContentLevel *)[self.contentArray objectAtIndex:0]).content baseURL:nil];
+    
+    
+//    NSString* showHtml = @"<html><head></head><body><img src='data:image/jpg;base64,%@'/><p>here is show a picture.</p></body></html>";
+//    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:@"www.abc.com/img/img1.jpg"]];
+//    NSString* imageString = [imageData base64Encoding];
+//    UIWebView* webView = [UIWebView alloc];[webView loadHTMLString:[NSString stringWithFormat:showHtml, imageString] baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
+    
+    
     CGRect contentFram = C.frame;
     contentFram.size.height = contentsize.height;
     C.frame = contentFram;
@@ -158,6 +163,27 @@
     UIScrollView *S = (UIScrollView *)[self.view viewWithTag:604];
     [S setContentSize:CGSizeMake(320, 80+B.frame.size.height+T.frame.size.height+D.frame.size.height+C.frame.size.height)];
 
+    ContentDB *db = [[ContentDB alloc] init];
+    if ([db openDatabase]) {
+        [db insertWithContentInfo:contentLevel];
+        [db closeDatabase];
+    }else
+        DLog(@"打开错误");
+    
+    DLog(@"contentLevel:%@",contentLevel);
+}
+- (void)requestFailed:(ASIHTTPRequest*)request
+{
+    @try{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"网络连接失败！请检查网络" delegate:self cancelButtonTitle:@"重试" otherButtonTitles: nil];
+        [alert show];
+        
+    }
+    @catch(...)
+    {
+        //NSLog(...)
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

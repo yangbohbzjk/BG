@@ -12,6 +12,7 @@
 #import "ListPageViewController.h"
 #import "MainLevel.h"
 #import "SDWebImageDownloader.h"
+
 @interface MainPageViewController ()
 
 @end
@@ -134,6 +135,7 @@
     [self.view addSubview:self.mTableView];
     
     //登陆成功后开始解析
+
     ASIHTTPRequest *request = [[ASIHTTPRequest alloc]initWithURL:[NSURL URLWithString:LOGIN_URL]];
     [request setTag:200];
     [request addBasicAuthenticationHeaderWithUsername:UserName andPassword:PassWord];
@@ -155,7 +157,6 @@
       //  NSLog(@"request:%@",request.responseString);
         //json
         NSArray *arr = [[request.responseString dataUsingEncoding:NSUTF8StringEncoding] objectFromJSONData];
-       // NSLog(@"arr:%@",arr);
         for (NSDictionary *dic in arr)
         {
             //===============假数据测试部分============
@@ -173,6 +174,20 @@
             [self.mTableView reloadData];
 
     }
+}
+
+- (void)requestFailed:(ASIHTTPRequest*)request
+{
+    @try{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"网络连接失败！请检查网络" delegate:self cancelButtonTitle:@"重试" otherButtonTitles: nil];
+        [alert show];
+        
+    }
+    @catch(...)
+    {
+        //NSLog(...)
+    }
+    
 }
 
 #pragma mark ------关闭浮动新闻条------

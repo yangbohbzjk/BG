@@ -24,7 +24,7 @@ static RegisterDB *sharedDB = nil;
     return sharedDB;
 }
 
-//注册用户账号，把用户信息写入User表中     相同用户名可以提交但不能写入数据库中，需要提示用户修改
+//注册用户账号，把用户信息写入User表中     相同用户名提示更改，不同名写入
 -(BOOL)insertWithUserInfo:(User *)aUser
 {
     NSString *sql = [NSString stringWithFormat:@"insert into \"main\".\"Users\" ( \"password\", \"username\", \"uid\" , \"email\", \"realname\") values ( \"%@\", \"%@\", %d, \"%@\", \"%@\")",aUser.password,aUser.username,aUser.uid,aUser.email,aUser.realname];
