@@ -178,7 +178,7 @@
     self.LandSortFlag = [NSString stringWithFormat:@"%@",[self.idArray objectAtIndex:(sender.tag-500)]];
     //单击事件发送请求json
     [self sendListHttp:[NSString stringWithFormat:@"%@&ps=%@",self.button_url,LIST_NUM_IMP]];
-    NSLog(@"sss:%@",[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%@&ps=%@",self.button_url,LIST_NUM_IMP]]);
+   // NSLog(@"sss:%@",[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%@&ps=%@",self.button_url,LIST_NUM_IMP]]);
 }
 
 #pragma mark ------ 分栏发送获取列表请求 ------

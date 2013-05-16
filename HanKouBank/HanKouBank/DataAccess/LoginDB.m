@@ -26,9 +26,10 @@ static LoginDB *sharedDB = nil;
 //登陆查询：账号密码查询是否匹配，进行登陆查询
 - (BOOL)selectUserAndPassFromDB:(User *)aUser
 {
-    //查询语句
+    [self readyDatabse];
+    if ([self openDatabase ]) {
+            //查询语句
     NSString *sql = [NSString stringWithFormat:@"select * from main.Users where username=\"%@\" and password=%d",aUser.username,[aUser.password intValue]];
-    
     const char *selectSql=[sql UTF8String];
     //执行查询
     if (sqlite3_prepare_v2(database, selectSql, -1, &statement, nil)==SQLITE_OK) {
@@ -46,8 +47,9 @@ static LoginDB *sharedDB = nil;
         }
         sqlite3_finalize(statement);
     }
+    }else
+        NSLog(@"打开数据库失败");
+
     return NO;
-
-
 }
 @end

@@ -17,6 +17,7 @@ static DataBase *sharedDB = nil;
 -(id)init {
     self = [super init];
     if(self){
+        
     }
     return self;
 }
@@ -68,7 +69,6 @@ static DataBase *sharedDB = nil;
 	}else {
 		return FALSE;
 	}
-	
 }
 
 //prepare sql

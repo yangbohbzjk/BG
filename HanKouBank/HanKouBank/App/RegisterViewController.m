@@ -80,9 +80,7 @@
 
 - (void)Resgister:(UIButton *)sender
 {
-    RegisterDB *db = [RegisterDB sharedDB];
-    
-    if ([db openDatabase]) {
+        RegisterDB *db = [RegisterDB sharedDB];
         User *user = [[User alloc]init];
         user.username = ((UITextField *)[self.view viewWithTag:150+0]).text;
         user.password = ((UITextField *)[self.view viewWithTag:150+1]).text;
@@ -103,15 +101,9 @@
                 [alert setTag:180];
                 [alert show];
             }
-            
         }
-        [db closeDatabase];
-    }else
-        DLog(@"打开数据库又失败了。。。");
-    
-    
-
 }
+
 
 //关闭键盘方法
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

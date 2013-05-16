@@ -28,7 +28,6 @@ static ForgotDB *sharedDB = nil;
 {
     //查询语句
     NSString *sql = [NSString stringWithFormat:@"select * from main.Users where username=\"%@\" and email=\"%@\"",aUser.username,aUser.email];
-    
     const char *selectSql=[sql UTF8String];
     //执行查询
     if (sqlite3_prepare_v2(database, selectSql, -1, &statement, nil)==SQLITE_OK) {
@@ -45,7 +44,6 @@ static ForgotDB *sharedDB = nil;
         sqlite3_finalize(statement);
     }
     return passwordFromUser;
-
 }
 
 

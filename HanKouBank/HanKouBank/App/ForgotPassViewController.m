@@ -94,7 +94,6 @@
     UIAlertView *backPass = [[UIAlertView alloc]initWithTitle:@"找回密码" message:[NSString stringWithFormat:@"您的密码为:%@ 请牢记",user.password] delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
     [backPass show];
     [db closeDatabase];
-    
 }
 
 //backBar popToSuper imple

@@ -164,24 +164,27 @@
     [S setContentSize:CGSizeMake(320, 80+B.frame.size.height+T.frame.size.height+D.frame.size.height+C.frame.size.height)];
 
     ContentDB *db = [[ContentDB alloc] init];
-    if ([db openDatabase]) {
         [db insertWithContentInfo:contentLevel];
-        [db closeDatabase];
-    }else
-        DLog(@"打开错误");
     
     DLog(@"contentLevel:%@",contentLevel);
 }
+
 - (void)requestFailed:(ASIHTTPRequest*)request
 {
+    ContentLevel *contentLevel = [[ContentLevel alloc]init];
+    ContentDB *db = [ContentDB sharedDB];
+    contentLevel.docId = [NSNumber numberWithInt:[_Content_docIdStr intValue]];
+   
+        [db SelectContentsFromDB:contentLevel];
+    
     @try{
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"网络连接失败！请检查网络" delegate:self cancelButtonTitle:@"重试" otherButtonTitles: nil];
         [alert show];
-        
+
     }
     @catch(...)
     {
-        //NSLog(...)
+       
     }
     
 }

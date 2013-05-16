@@ -25,7 +25,6 @@
         self.discussNum = [dic objectForKey:@"discussNum"];
         self.docId = [dic objectForKey:@"docId"];
         self.path = [dic objectForKey:@"path"];
-        
         self.channelId = [dic objectForKey:@"channelId"];
         self.authors = [dic objectForKey:@"authors"];
     }

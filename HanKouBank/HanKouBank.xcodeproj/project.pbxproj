@@ -711,7 +711,7 @@
 				4593553E17263D930058B1A1 /* CellItem */,
 				45E49FC0172B78E80044FDDA /* DataAccess */,
 				453184101728B9E3005E7AF8 /* Model */,
-				4593553917263D1D0058B1A1 /* ViewController */,
+				4593553917263D1D0058B1A1 /* Controller */,
 				4593553A17263D290058B1A1 /* config */,
 				4593553D17263D530058B1A1 /* resources */,
 				4593553C17263D4A0058B1A1 /* libs */,
@@ -738,7 +738,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4593553917263D1D0058B1A1 /* ViewController */ = {
+		4593553917263D1D0058B1A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				458288F3173BA9A3006B2B74 /* RegisterViewController.h */,
@@ -754,7 +754,7 @@
 				458288EB173BA9A3006B2B74 /* ContentPageViewController.h */,
 				458288EC173BA9A3006B2B74 /* ContentPageViewController.m */,
 			);
-			name = ViewController;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		4593553A17263D290058B1A1 /* config */ = {

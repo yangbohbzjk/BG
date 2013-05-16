@@ -36,4 +36,5 @@
 
 - (void) HiddenBackBarWithNewYourBackBar;
 - (void) BackBarPopToSuper;
+
 @end

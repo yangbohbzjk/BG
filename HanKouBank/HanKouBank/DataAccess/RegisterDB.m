@@ -27,17 +27,22 @@ static RegisterDB *sharedDB = nil;
 //注册用户账号，把用户信息写入User表中     相同用户名提示更改，不同名写入
 -(BOOL)insertWithUserInfo:(User *)aUser
 {
-    NSString *sql = [NSString stringWithFormat:@"insert into \"main\".\"Users\" ( \"password\", \"username\", \"uid\" , \"email\", \"realname\") values ( \"%@\", \"%@\", %d, \"%@\", \"%@\")",aUser.password,aUser.username,aUser.uid,aUser.email,aUser.realname];
-    //将定义的NSString的sql语句，转换成UTF8的c风格的字符串
-    const char *insertSql = [sql UTF8String];
-    //执行插入语句
-    if (sqlite3_exec(database, insertSql, NULL, NULL,&errorMsg)==SQLITE_OK) {
-        NSLog(@"插入注册信息成功");
-        return YES;
-    }else{
-        NSLog(@"error: %s",errorMsg);
-        sqlite3_free(errorMsg);
-    }
+    [self readyDatabse];
+    if ([self openDatabase]) {
+        NSString *sql = [NSString stringWithFormat:@"insert into \"main\".\"Users\" ( \"password\", \"username\", \"uid\" , \"email\", \"realname\") values ( \"%@\", \"%@\", %d, \"%@\", \"%@\")",aUser.password,aUser.username,aUser.uid,aUser.email,aUser.realname];
+        //将定义的NSString的sql语句，转换成UTF8的c风格的字符串
+        const char *insertSql = [sql UTF8String];
+        //执行插入语句
+        if (sqlite3_exec(database, insertSql, NULL, NULL,&errorMsg)==SQLITE_OK) {
+             return YES;
+        }else{
+            NSLog(@"error: %s",errorMsg);
+            sqlite3_free(errorMsg);
+        }
+
+    }else
+        NSLog(@"数据库打开失败，注册失败");
+    [self closeDatabase];
     return NO;
 }
 
@@ -46,7 +51,9 @@ static RegisterDB *sharedDB = nil;
 //只查询username，主键是否一致 username是需要查询的值 textfield。text
 - (BOOL)selectUserFromDB:(User *)aUser
 {
-    NSString *sql = [NSString stringWithFormat:@"select * from \"main\".\"Users\" where username = \"%@\"",aUser.username];
+    [self readyDatabse];
+    if ([self openDatabase]) {
+          NSString *sql = [NSString stringWithFormat:@"select * from \"main\".\"Users\" where username = \"%@\"",aUser.username];
     const char *selectSql=[sql UTF8String];
     //执行查询
     if (sqlite3_prepare_v2(database, selectSql, -1, &statement, nil)==SQLITE_OK) {
@@ -61,7 +68,10 @@ static RegisterDB *sharedDB = nil;
             DLog(@"用户名可用!");
         }
         sqlite3_finalize(statement);
-    }
+      }
+  }else
+        NSLog(@"打开数据库失败");
+    [self closeDatabase];
     return NO;
 
 }
